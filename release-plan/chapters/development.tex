@@ -20,8 +20,6 @@ De eerste regel van een commit is de titel en geeft een korte beschrijving van d
 
 \section{Staged Merge System}
 
-Het Staged Merge System zorgt ervoor dat iedere commit in quarantaine wordt gesteld tot deze bekeken is door andere developers. Feature branches worden hiermee ge-emuleerd zonder deze daadwerkelijk te gebruiken, waardoor developers er ook geen fouten in kunnen maken. \\
+Het Staged Merge System zorgt ervoor dat iedere feature in quarantaine wordt gesteld tot deze bekeken is door andere developers. Dit wordt bewerkstelligd door middel van een feature, gestopt in een branch, die klaarstaat on gemerged te worden. \\
 
-Om code te mergen in dit systeem moet er eerst een OK gegeven worden door een andere developer. Deze geeft een code-review over de commit en wacht op aanpassingen. Daarnaast wordt voor iedere commit een build getest door de CI-server. \\
-
-Om dit systeem te faciliteren wordt er gebruik gemaakt van Gerrit in plaats van conventionele VCS-backends\footnote{Version Control System}
+Om code te mergen in dit systeem moet er eerst een OK gegeven worden door een andere developer. Deze geeft een code-review over de commits en wacht op aanpassingen. Daarnaast wordt voor iedere commit een build getest door de CI-server. Dit wordt in gitlab verzogd door middel van Pull Requests. \\
