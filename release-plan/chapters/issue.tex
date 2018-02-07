@@ -1,0 +1,75 @@
+\chapter{Taken en Issues}
+
+Voor het verzorgen van een geheel ontwikkelproces is er een nood voor een vorm van geschreven communicatie tussen de leden van het ontwikkelteam. Voor dit te faciliteren wordt er gebruik gemaakt van een Issue Tracker, een tool waar taken in opgeschreven worden. Om ervoor te zorgen dat deze tool leesbaar en bruikbaar is zijn hier een paar korte richtlijnen voor.
+
+\section{Beschrijving}
+
+Een issue staat voor een enkele "Unit of Work"\footnote{Lees: taak} en beschrijft een gewenste functionaliteit. Deze kan varie{\"e}ren van kleine bugfixes tot grote epics, onderverdeeld in kleinere taken. \\
+
+Issues dienen als documentatie voor het project en als discussie-platform voor functionaliteit. De bedoeling is dat de issue wordt gebruikt om te discuss{\"e}ren over de gewenste implementatie en veranderingen toe te brengen. Na discussie dient de issue aangepast te worden conform de nieuwe besproken specificaties. 
+
+\subsection{Standaardformaat}
+
+Een issue volgt het volgende formaat:
+\begin{itemize}
+	\item Probleem/Motivatie
+	\item Gewenste oplossing
+	\item Mogelijke gevolgen voor de applicatie (Veranderen van dataschema of API endpoints)
+\end{itemize}
+
+\section{Releases}
+
+Voor ondersteuning van de agile processen worden issues georganiseerd op basis van releases, om van tevoren de release te plannen waarin functionaliteit wordt ge{\"i}mpementeerd. Releases hebben een naam, tag en beschrijving om in grote lijnen aan te geven welke functionaliteit bij de release hoort. \\
+Bugfixes worden gepubliceerd onder de eerstvolgende release terwijl gewone taken een specifieke release hebben.
+
+\subsection{Versioning}
+
+Voor het dopen van een release wordt gebruik gemaakt van Semantic Versioning\cite{semver1} om een duidelijk schema vast te leggen. De naam bestaat dus uit cijfers in het volgende formaat: \textbf{MAJOR.MINOR.PATCH}. \\
+
+\textbf{MAJOR} staat voor een grote release die niet "backwards compatible"\footnote{Nieuwe versie werkt niet samen met oude versie} is en kan dus enkel werken met een release van hetzelfde \textbf{MAJOR} nummer.\\
+
+\textbf{MINOR} is een kleinere release die zonder problemen samen kan werken met release met hetzelfde \textbf{MAJOR} nummer. \\
+
+\textbf{PATCH} is een klein en voegt geen nieuwe functionaliteit toe aan het product maar past bugfixes toe.
+
+\subsection{Voorbeeld}
+
+\textbf{Kwetter 2.5}
+Implementeert veranderingen in het API schema met nieuwe authenticatie via OAuth2. \\
+
+\textbf{Kwetter 3.0}
+Doorvoeren van een complete refactor over de front-end
+
+\section{Tagging}
+
+Terwijl de titel van een issue de functionaliteit hiervan probeert te beschrijven kunnen vaak onduidelijkheden overblijven omtrent de taak zelf. Om dit probleem op te lossen wordt er gebruik gemaakt van een taggingsysteem waarmee de scope van een taak in een oogopslag gezien kan worden.
+
+\subsection{Prioriteit}
+
+Alhoewel issues al een inherente prioriteit hebben door de release is er een nood om aan te geven hoe belangrijk een taak is. Hiervoor worden de volgende tags gebruikt. 
+
+\begin{itemize}
+	\item PRIO - High
+	\item PRIO - Medium
+	\item PRIO - Low
+\end{itemize}
+
+\subsection{Type}
+
+Een issue kan verschillende doelen hebben en zullen dus een andere interactie van ontwikkelaars vereisen. Dit wordt aangegeven door middle van een type
+
+\begin{itemize}
+	\item TYPE - Feature - Nieuwe functionaliteit
+	\item TYPE - Enhancement - Verbeteren van bestaande functionaliteit
+	\item TYPE - Bug - Rapporteren van een bug
+	\item TYPE - Proposal - Voorstel voor het veranderen van de applicatie
+\end{itemize}
+
+\subsection{Module}
+
+Om te verzorgen dat issues snel gesorteerd en gevonden kunnen worden op basis van module zullen zij hiermee getagged worden. De voorbeelden die hierbij horen kunnen vaker veranderen naarmate het product ouder wordt. Deze worden dan opnieuw gedocumenteerd.
+
+\begin{itemize}
+	\item MOD - API: Verandering in de API
+	\item MOD - UI: User interface change
+\end{itemize}

@@ -1,0 +1,27 @@
+\chapter{Ontwikkeling}
+
+Het daadwerkelijke ontwikkelproces is het belangrijkste onderdeel van software engineering en moet goed uitgevoerd worden. Om samenwerking te bevorderen wordt er gebruik gemaakt van vele conventies en best-practices om problemen in de kiem te smoren. \\
+
+Waar veel mensen aanraden om met veel branches en branch sharing te werken\cite{branch2} zijn hier enkele inherente problemen mee. Ten eerste zorgt het voor grote integratiebranches van features. Om features daadwerkelijk te mergen kunnen er veel problemen voorkomen vanwege de vele features. Ten tweede moeten er veel branches tussen de verschillende ontwikkelaars gedeeld worden. Dit proces kost veel onnodige moeite en staat open voor problemen.\cite{branch1} \\
+
+Vanwege deze redenen wordt er gewerkt met een cactusmodel, waarbij het werkt gebeurt in de master branch. Dit haalt meerdere onnodige branches weg. Commits worden via een Staged Merge System toegevoegd aan de master branch. 
+
+\section{Branches en Benamingen}
+
+De master-branch wordt gezien als de enkele bron van waarheid in het project waardoor al het werk in deze branch gebeurt. Om te voorkomen dat commits direct naar master gecommit worden is deze branch "protected"\footnote{Er mag niet zomaar naar gepushed worden} maar worden de commits gecureerd door het Staged Merge Systeem. \\
+
+Branches worden gemaakt voor releases. Deze branches krijgen de naam "release-MAJOR.MINOR.PATCH". Hotfixes worden toegepast op deze branch en cherry-picked naar master. Er gebeurt geen development op release-branches.
+
+\section{Commit guidelines}
+
+Om ervoor te zorgen dat commits te begrijpen zijn moeten zij leesbaar worden gehouden, anders is het in de toekomst onmogelijk om te zien wat gebeurd is. Om deze reden zijn er regels voor commits die gevolgd moeten worden. \\
+
+De eerste regel van een commit is de titel en geeft een korte beschrijving van de commit zelf. Het word als samengesteld door een beschrijving van de commit (fix, feat, docs, style), de scope (cli, api, ui) en eindigend met een korte boodschap (Add endpoint for serving users). Op de tweede regel wordt de commit in-depth beschreven (Add an endpoint for serving users with new serializer). Dit wordt gevolgd door een lijst met breaking changes als deze voorkomen. Als laatste heeft een commit een referentie naar een issue in de issue tracker.
+
+\section{Staged Merge System}
+
+Het Staged Merge System zorgt ervoor dat iedere commit in quarantaine wordt gesteld tot deze bekeken is door andere developers. Feature branches worden hiermee ge-emuleerd zonder deze daadwerkelijk te gebruiken, waardoor developers er ook geen fouten in kunnen maken. \\
+
+Om code te mergen in dit systeem moet er eerst een OK gegeven worden door een andere developer. Deze geeft een code-review over de commit en wacht op aanpassingen. Daarnaast wordt voor iedere commit een build getest door de CI-server. \\
+
+Om dit systeem te faciliteren wordt er gebruik gemaakt van Gerrit in plaats van conventionele VCS-backends\footnote{Version Control System}
