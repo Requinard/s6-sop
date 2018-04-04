@@ -1,0 +1,109 @@
+\documentclass[]{scrreprt}
+
+
+% Title Page
+\title{Change Management}
+\author{David Diks, Jandie Hendriks, Yannick Riesenbos}
+
+
+\begin{document}
+\maketitle
+
+\chapter{Terminologie}
+
+\section{Change Request}
+
+	Een change-request is een aanvraag voor het veranderen van een functie of het implementeren van nieuwe functies. Hierbij wordt de gevraagde functionaliteit in redelijk detail beschreven, inclusief een business-case voor de functie. Het formaat hiervan zal daarom hetzelfde zijn als use-cases.
+	
+	Een request is geen commitment maar zal nog beoordeeld worden door de verschillende rollen.
+
+	\section{Rollen}
+	De rollen zijn de verschillende stakeholders binnen het project. Deze zijn als volgt.
+	
+	\subsection{Requester}
+	
+	Deze rol is voor degene die een Change Request invoert. Hij of zij wil iets nieuws zien in de applicatie
+	
+	\subsection{Architect}
+	
+	De architect heeft zicht op de applicatie en weet wat wel en niet te implementeren is.
+	
+	\subsection{Beheer}
+	
+	Beheer overziet de test- en productie omgevingen. Hij of zij kan aangeven of bepaalde veranderingen wel zijn toegestaan. Dit is vaak de  CI-verantwoordelijke.
+	
+	\subsection{Management}
+	
+	De manager beheert het process en besluit of er tijd is voor specifieke changes.
+	
+	\subsection{Developer}
+	
+	Developers implementeren de features en hebben een bepaald inzicht die andere rollen missen.
+	
+	\chapter{Change Requests}
+	
+	Een change-request doorloopt de volgende stappen:
+	
+	\begin{enumerate}
+		\item Report
+		\item Estimation
+		\item Review
+		\item Implementation
+		\item Deployment
+	\end{enumerate}
+
+	\section{Report}
+	
+	Roles: \textit{Requester} \\
+	
+	In deze fase wordt een change-request aangemaakt. Deze volgt het volgende formaat: 
+	
+	\begin{quotation}
+		as a \textbf{Role} I want to \textbf{Action} because \textbf{Business value}.
+	\end{quotation}
+	
+	\section{Estimation}
+	
+	Rollen: \textit{Architect, Developer} \\
+	
+	Tijdens estimation worden er inschattingen gemaakt over de haalbaarheid van een change-request. Er wordt gekeken of deze binnen de bestaande architectuur past en of deze uitvoerbaar is. \\
+	
+	Hierbij is het mogelijk dat er problemen voorkomen, zoals;
+	
+	\begin{itemize}
+		\item De functie vergt te veel rekenkracht
+		\item De functie past niet binnen het doel
+		\item De functie past niet binnen voorgezette doelen voor architectuur
+	\end{itemize}
+
+	Indien de change-request goedgekeurd wordt gaat deze door naar Review. Indien niet, zal de request afgesloten worden.
+
+	\section{Review}
+	
+	Rollen: \textit{Management, Developer} \\
+	
+	In deze fase wordt bepaald of de veranderingen te implementeren zijn en of er tijd voor is.
+	
+	Mogelijke problemen zijn:
+	
+	\begin{itemize}
+		\item Er is geen tijd voor
+		\item Er is geen geld voor
+		\item De use-case is niet nauw genoeg
+		\item De implementatie gaat lang duren
+	\end{itemize}
+	
+	Indien er geen fouten zijn gaat de request door naar implementatie, anders wordt deze afgesloten met relevant kommentaar. Indien de request hier geaccepteerd wordt zal deze geimplementeerd worden.
+	
+	\section{Implementatie}
+	
+	Rollen: \textit{Developer} \\
+	
+	In deze fase wordt de code ontwikkeld, getest en gereviewed. Zie hiervoor ook het OTAP-document. Code gaat automatisch door naar deployment
+	
+	\section{Deployment}
+	
+	Rollen: \textit{Beheer} \\
+	
+	In deze fase word de code gedeployed en de change request afgesloten.
+\end{document}          

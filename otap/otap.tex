@@ -1,0 +1,54 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+
+\title{OTAP}
+\author{David Diks, Jandie Hendriks, Yannick Riesebos}
+
+\begin{document}
+	\maketitle
+	
+	\chapter{Opzet}
+	Om applicaties continu te ontwikellen zal er een OTAP-straat opgezet worden. In deze straat doorloopt ontwikkelde code een process om de betrouwbaarheid te verifie\"eren.
+	
+	Dit process bestaat uit meerdere stappen, bestaande uit de het acronym OTAP, Ontwikkelen, Testen, Acccepteren en Productie. Deze omgeving is uitgelijnd in 
+	
+	\section{Ontwikkelen}
+	
+	Tijdens het ontwikkelen is eht van eblang dat de onderliggende componenten netjes samenwerken. Hiervoor worden kleine integratietests geschreven die enkel bestaan uit het aanroepen van een URL en de resultaten te bekijken. \\
+	
+	Deze testen worden door de de developer zelf uitgevoerd om functionaliteit met de hand te bewijzen en zijn niet belangrijk voor de rest van het process.
+	
+	\section{Testen}
+	
+	Na het ontwikkelen word de software getest. In deze stap is het van belang dat de code:
+	
+	\begin{itemize}
+		\item Compileert
+		\item Geformatteerd is
+		\item Unit tests gedrag bewijzen
+	\end{itemize}
+	
+	Om dit goed uit te voeren worden deze testen automatisch uitgevoerd na iedere commit op een aparte buildserver. Hiermee wordt een feedback-loop gemaakt om automatisch de kwaliteit tot een redelijk niveau te beoordelen. Deze testen worden uitgevoerd via \textit{gradle build}.
+	
+	\section{Acceptatie}
+	
+	Acceptatie is een latere stap van het process. In deze stap is het doel dat;
+	
+	\begin{itemize}
+		\item Functioneel getest word
+		\item Omgeving bijna productie is
+		\item Handmatig extra wordt nagegeken
+		\item De interne data uit de productie komt
+	\end{itemize}
+
+	Deze stap van het process is \textbf{verplicht} nadat software van \textit{dev} wordt gereleased. Na het aanmaken van een release wordt de WAR handmatig op Qualification gezet waarna deze met de hand wordt getest op componenten. Hierbij wordt de nieuwe functionaliteit nog een keer nagekeken. Developers hebben geen toegang  tot de payara-instellingen.
+	
+	\section{Productie}
+	
+	Nadat een release door Acceptatie is gegaan is deze  klaar voor productie. De packaged WAR wordt via een webinterface ge-upload naar de \textbf{production} server waarna deze officieel ge-released is.
+\end{document}
